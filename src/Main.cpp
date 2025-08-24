@@ -9,9 +9,9 @@ using namespace daisysp;
 
 DaisyPod hw;
 
-static void audioCallback(AudioHandle::InterleavingInputBuffer  in,
-                   		   AudioHandle::InterleavingOutputBuffer out,
-                   		   size_t                                size)
+static void AudioCallback(AudioHandle::InterleavingInputBuffer  in,
+                   		  AudioHandle::InterleavingOutputBuffer out,
+                   		  size_t                                size)
 {
 	hw.ProcessAllControls();
 	for (size_t i = 0; i < size; i += 2)
@@ -27,6 +27,6 @@ int main(void)
 	hw.SetAudioBlockSize(4); // number of samples handled per callback
 	hw.SetAudioSampleRate(SaiHandle::Config::SampleRate::SAI_48KHZ);
 	hw.StartAdc();
-	hw.StartAudio(audioCallback);
+	hw.StartAudio(AudioCallback);
 	while(1) {}
 }
