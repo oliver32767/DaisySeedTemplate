@@ -3,7 +3,8 @@ TARGET = Template
 USE_DAISYSP_LGPL = 1
 
 # Sources
-CPP_SOURCES = src/Main.cpp
+# CPP_SOURCES = src/Main.cpp # single source file
+CPP_SOURCES += $(wildcard src/*.cpp) # multiple sources
 
 # Library Locations
 LIBDAISY_DIR = lib/libDaisy/
